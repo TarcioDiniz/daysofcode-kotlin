@@ -1,1 +1,1 @@
-# daysofcode-kotlin
+# 7daysofcode-kotlin
