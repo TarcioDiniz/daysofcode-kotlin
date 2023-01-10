@@ -1,4 +1,4 @@
-package com.daysofcodeKotlin
+package com.daysofcodeKotlin.extensions
 
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.toComposeImageBitmap
