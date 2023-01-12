@@ -8,7 +8,6 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
-import com.daysofcodeKotlin.model.data.Movie
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -19,6 +18,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.daysofcodeKotlin.extensions.loadImageBitmap
+import com.daysofcodeKotlin.model.data.Movie
 
 @Composable
 fun labelMovie(movie: Movie){
@@ -35,7 +35,7 @@ fun labelMovie(movie: Movie){
                     contentDescription = "movie cover",
                     modifier = Modifier
                         .fillMaxWidth()
-                        .clip(RoundedCornerShape(4.dp))
+                        .clip(RoundedCornerShape(6.dp))
                 )
                 Row(
                     modifier = Modifier.fillMaxWidth()
@@ -55,7 +55,7 @@ fun labelMovie(movie: Movie){
                             modifier = Modifier.height(16.dp)
                         )
                         Text(
-                            text = movie.note,
+                            text = movie.imDbRating,
                             modifier = Modifier
                                 .padding(start = 2.dp),
                             color = Color(0xffeeeeee),

@@ -9,8 +9,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
+import com.daysofcodeKotlin.API.ImdbService
+import com.daysofcodeKotlin.API.toMovie
 import com.daysofcodeKotlin.UI.labelMovie
-import com.daysofcodeKotlin.model.MovieAll
 
 
 @Composable
@@ -20,22 +21,23 @@ fun App() {
     MaterialTheme(colors = darkColors()) {
         Surface {
 
-            val movies = MovieAll()
-            val getMovies = movies.getAllMovieData()
+            val getMovies = ImdbService()
+                .getTop250Movies()
+                ?.items
+                ?.map { it.toMovie() }
 
             LazyColumn(
                 contentPadding = PaddingValues(all = 2.dp),
                 verticalArrangement = Arrangement.spacedBy(6.dp)
             ) {
-                items(getMovies.size) { index ->
-                    labelMovie(getMovies[index])
+                if (getMovies != null) {
+                    items(getMovies.size) { index ->
+                        labelMovie(getMovies[index])
+                    }
                 }
             }
-
-
         }
     }
-
 }
 
 fun main() = application {
